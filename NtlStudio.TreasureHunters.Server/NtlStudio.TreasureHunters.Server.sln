@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NtlStudio.TreasureHunters.WebServer", "NtlStudio.TreasureHunters.WebServer\NtlStudio.TreasureHunters.WebServer.csproj", "{CE2E5072-725B-4952-B21A-4329AE86EDE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NtlStudio.TreasureHunters.Model", "NtlStudio.TreasureHunters.Model\NtlStudio.TreasureHunters.Model.csproj", "{F20C51B1-67CC-4749-9CED-81AC423769DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE2E5072-725B-4952-B21A-4329AE86EDE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE2E5072-725B-4952-B21A-4329AE86EDE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE2E5072-725B-4952-B21A-4329AE86EDE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE2E5072-725B-4952-B21A-4329AE86EDE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F20C51B1-67CC-4749-9CED-81AC423769DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F20C51B1-67CC-4749-9CED-81AC423769DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F20C51B1-67CC-4749-9CED-81AC423769DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F20C51B1-67CC-4749-9CED-81AC423769DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
