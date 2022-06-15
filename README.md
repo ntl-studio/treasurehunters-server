@@ -7,6 +7,8 @@ of the game via API.
 
 ### How to Install and Run the Project
 
+Make sure that you have installed .NET 6.0.
+
 Go to the folder `NtlStudio.TreasureHunters.Server/NtlStudio.TreasureHunters.WebServer` and run the project by the following command:  
 
 ```bash
