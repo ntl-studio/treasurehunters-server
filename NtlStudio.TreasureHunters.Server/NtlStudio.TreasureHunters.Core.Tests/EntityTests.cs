@@ -13,8 +13,8 @@ public class EntityTests
     public void EntitiesWithTheSameIdShouldBeEqual()
     {
         // arrange
-        var entity1 = new IntEntity(5);
-        var entity2 = new IntEntity(5);
+        var entity1 = new TestEntity(5);
+        var entity2 = new TestEntity(5);
         
         //act, assert
         Assert.AreEqual(entity1, entity2);
@@ -24,8 +24,8 @@ public class EntityTests
     public void EntitiesWithZeroIdShouldNotBeEqual()
     {
         // arrange
-        var entity1 = new IntEntity();
-        var entity2 = new IntEntity();
+        var entity1 = new TestEntity();
+        var entity2 = new TestEntity();
         
         //act, assert
         Assert.AreNotEqual(entity1, entity2);
@@ -35,8 +35,8 @@ public class EntityTests
     public void EqualityOperatorShouldReturnTrueForEqualEntities()
     {
         // arrange
-        var entity1 = new IntEntity(1);
-        var entity2 = new IntEntity(1);
+        var entity1 = new TestEntity(1);
+        var entity2 = new TestEntity(1);
         
         // act
         var result = entity1 == entity2;
