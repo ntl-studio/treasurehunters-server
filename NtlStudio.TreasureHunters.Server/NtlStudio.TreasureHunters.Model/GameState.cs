@@ -126,8 +126,6 @@ public class GameState: Entity<Guid>
 
     public FieldCell[,] GameField { get; }
 
-    // Disable the warning as GetHasCode is overridden in the Entity class
-#pragma warning disable CS0659
     public override bool Equals(object? obj)
     {
         if (base.Equals(obj))
@@ -137,5 +135,10 @@ public class GameState: Entity<Guid>
 
         return false;
     }
-#pragma warning restore CS0659
+
+    // This override is needed just to remove warning about overriden Equals without GetHashCode
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
 }
