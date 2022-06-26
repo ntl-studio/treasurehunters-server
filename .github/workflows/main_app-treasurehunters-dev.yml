@@ -45,7 +45,7 @@ jobs:
     runs-on: windows-latest
     needs: build
     environment:
-      name: 'Production'
+      name: 'Development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -59,6 +59,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'app-treasurehunters-dev'
-          slot-name: 'Production'
+          slot-name: 'Development'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C12E259912D949A29608AF8A31B92D6F }}
           package: .
