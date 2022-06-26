@@ -1,10 +1,12 @@
-﻿namespace NtlStudio.TreasureHunters.Game;
+﻿using NtlStudio.TreasureHunters.Core;
 
-public class GameState
+namespace NtlStudio.TreasureHunters.Game;
+
+public class GameState: Entity<Guid>
 {
     public GameState(Guid gameId)
     {
-        GameId = gameId;
+        Id = gameId;
         GameField = new FieldCell[10, 10];
         GenerateDefaultGameField(GameField);
     }
@@ -122,7 +124,18 @@ public class GameState
         gameField[9, 9] = FieldCell.BottomWall | FieldCell.RightWall;
     }
 
-    public Guid GameId { get; }
-    
     public FieldCell[,] GameField { get; }
+
+    // Disable the warning as GetHasCode is overridden in the Entity class
+#pragma warning disable CS0659
+    public override bool Equals(object? obj)
+    {
+        if (base.Equals(obj))
+        {
+            return Id != Guid.Empty && ((GameState)obj).Id != Guid.Empty;
+        }
+
+        return false;
+    }
+#pragma warning restore CS0659
 }
