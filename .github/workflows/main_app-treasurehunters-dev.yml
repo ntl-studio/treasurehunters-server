@@ -34,7 +34,7 @@ jobs:
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-        working-directory: .\NtlStudio.TreasureHunters.WebServer
+        working-directory: .\NtlStudio.TreasureHunters.Server\NtlStudio.TreasureHunters.WebServer
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
