@@ -1,19 +1,25 @@
+using System.Collections;
 using NtlStudio.TreasureHunters.Core;
 
 namespace NtlStudio.TreasureHunters.Game;
 
-public class GameField: ValueObject<GameField>
+public class GameField: ValueObject<GameField>, IEnumerable<IEnumerable<FieldCell>>
 {
-    private const int FieldWidth = 10;
-    private const int FieldHight = 10;
+    public const int FieldWidth = 10;
+    public const int FieldHeight = 10;
     private readonly FieldCell[,] _gameField;
-    
+
+    internal GameField(FieldCell[,] field)
+    {
+        _gameField = field;
+    }
+
     public FieldCell this[int x, int y] => _gameField[x, y];
 
     protected override bool EqualsValueObject(GameField other)
     {
         for (var i = 0; i < FieldWidth; i++)
-            for (var j = 0; j < FieldHight; j++)
+            for (var j = 0; j < FieldHeight; j++)
                 if (_gameField[i, j] != other[i, j])
                     return false;
 
@@ -30,5 +36,15 @@ public class GameField: ValueObject<GameField>
         }
 
         return hc;
+    }
+
+    public IEnumerator<IEnumerable<FieldCell>> GetEnumerator()
+    {
+        return new GameFieldEnumerator(new GameField(_gameField));
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }
