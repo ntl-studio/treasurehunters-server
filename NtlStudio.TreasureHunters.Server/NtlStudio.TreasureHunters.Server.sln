@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NtlStudio.TreasureHunters.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NtlStudio.TreasureHunters.Core.Tests", "NtlStudio.TreasureHunters.Core.Tests\NtlStudio.TreasureHunters.Core.Tests.csproj", "{6CACB0DC-9453-427A-8041-CA2A723C766C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NtlStudio.TreasureHunters.Model.Tests", "NtlStudio.TreasureHunters.Model.Tests\NtlStudio.TreasureHunters.Model.Tests.csproj", "{D7978110-E5A1-466D-A740-45A76D7BBF81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{6CACB0DC-9453-427A-8041-CA2A723C766C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CACB0DC-9453-427A-8041-CA2A723C766C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CACB0DC-9453-427A-8041-CA2A723C766C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7978110-E5A1-466D-A740-45A76D7BBF81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7978110-E5A1-466D-A740-45A76D7BBF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7978110-E5A1-466D-A740-45A76D7BBF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7978110-E5A1-466D-A740-45A76D7BBF81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
