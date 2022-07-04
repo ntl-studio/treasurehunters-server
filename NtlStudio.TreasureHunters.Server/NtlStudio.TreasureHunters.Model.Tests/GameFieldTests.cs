@@ -91,6 +91,14 @@ public class GameFieldTests
         }
         
         // assert
-        Assert.Throws<ModelException>(() => builder.Build());
+        try
+        {
+            builder.Build();
+        }
+        catch (Exception e)
+        {
+            Assert.Pass();
+        }
+        Assert.Fail("Field is created without four exits");
     }
 }
