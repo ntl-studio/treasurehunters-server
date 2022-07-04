@@ -16,7 +16,7 @@ public class GamesController : ControllerBase
     
     [HttpPost]
     [Route("[action]")]
-    public async Task<IActionResult> Create()
+    public IActionResult Create()
     {
         var game = new GameState(Guid.NewGuid());
         _logger.LogInformation($"A new game {game.Id} has been created.");
