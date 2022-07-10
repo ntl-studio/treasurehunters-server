@@ -1,4 +1,5 @@
-﻿using NtlStudio.TreasureHunters.Core;
+﻿using Newtonsoft.Json;
+using NtlStudio.TreasureHunters.Core;
 
 namespace NtlStudio.TreasureHunters.Game;
 
@@ -126,6 +127,7 @@ public class GameState: Entity<Guid>
         return builder.Build();
     }
 
+    [JsonProperty("game_field")]
     public GameField GameField => _gameField;
 
     public override bool Equals(object? obj)
