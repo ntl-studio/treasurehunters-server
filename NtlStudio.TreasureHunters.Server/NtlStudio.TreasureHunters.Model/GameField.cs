@@ -7,6 +7,7 @@ public class GameField: ValueObject<GameField>, IEnumerable<IEnumerable<FieldCel
 {
     public const int FieldWidth = 10;
     public const int FieldHeight = 10;
+    public const int MaxUsers = 5;
     private readonly FieldCell[,] _gameField;
 
     internal GameField(FieldCell[,] field)

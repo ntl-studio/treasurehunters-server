@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Immutable;
+using Newtonsoft.Json;
 using NtlStudio.TreasureHunters.Core;
 
 namespace NtlStudio.TreasureHunters.Game;
@@ -6,11 +7,28 @@ namespace NtlStudio.TreasureHunters.Game;
 public class GameState: Entity<Guid>
 {
     private readonly GameField _gameField;
-    public GameState(Guid gameId)
+    private readonly IDictionary<string, User> _registeredUsers = new Dictionary<string, User>();
+    public GameState(Guid gameId, bool isRunning = false, User[]? users = null, GameField? field = null)
     {
         Id = gameId;
-        var builder = new GameFieldBuilder(GameField.FieldWidth, GameField.FieldHeight);
-        _gameField = GenerateDefaultGameField(builder);
+        IsRunning = isRunning;
+        if (field! == null!)
+        {
+            var builder = new GameFieldBuilder(GameField.FieldWidth, GameField.FieldHeight);
+            _gameField = GenerateDefaultGameField(builder);
+        }
+        else
+        {
+            _gameField = field;
+        }
+        
+        if (users != null)
+        {
+            foreach (var user in users)
+            {
+               _registeredUsers.Add(user.UserName, user);
+            }
+        }
     }
 
     private GameField GenerateDefaultGameField(GameFieldBuilder builder)
@@ -129,6 +147,46 @@ public class GameState: Entity<Guid>
 
     [JsonProperty("game_field")]
     public GameField GameField => _gameField;
+    
+    [JsonProperty("is_running")]
+    public bool IsRunning { get; private set; }
+    
+    [JsonProperty("players")]
+    public IReadOnlyCollection<User> Players => _registeredUsers.Values.ToImmutableArray();
+
+    public User RegisterUser(string userName)
+    {
+        if (IsRunning)
+            throw new InvalidOperationException("Game is already running");
+        
+        if (_registeredUsers.ContainsKey(userName))
+            throw new InvalidOperationException("User is already registered");
+        
+        if (_registeredUsers.Count == GameField.MaxUsers)
+            throw new InvalidOperationException("Game is full");
+
+        var registerUser = new User(userName);
+        _registeredUsers.Add(userName, registerUser);
+        return registerUser;
+    }
+
+    public bool Start()
+    {
+        if (IsRunning)
+            throw new InvalidOperationException("Game is already running");
+        
+        if (_registeredUsers.Count < 1)
+            throw new InvalidOperationException("Not enough users to play");
+        
+        PlaceAllRegisteredUsers();
+        IsRunning = true;
+        return IsRunning;
+    }
+
+    private void PlaceAllRegisteredUsers()
+    {
+        // place all users at their places
+    }
 
     public override bool Equals(object? obj)
     {
